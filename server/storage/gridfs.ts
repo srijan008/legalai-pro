@@ -1,5 +1,4 @@
 import { MongoClient, GridFSBucket, ObjectId } from "mongodb"
-
 const uri = process.env.DATABASE_URL as string
 
 let clientPromise: Promise<MongoClient> | null = null
