@@ -10,7 +10,10 @@ type Props = {
 }
 
 export default function DocumentClient({ documentId }: Props) {
-  const { data, isLoading } = trpc.documents.getById.useQuery({ id: documentId })
+  const query = trpc.documents.getById.useQuery({ id: documentId })
+  const data = query.data as any
+  const isLoading = query.isLoading
+
   const analyze = trpc.analysis.analyzeDocument.useMutation({
     onSuccess() {
       window.location.reload()
@@ -59,8 +62,9 @@ export default function DocumentClient({ documentId }: Props) {
           </div>
           <RiskDashboard score={data.riskScore || 0} />
         </div>
+
         <div className="flex-1 overflow-y-auto p-2 space-y-2">
-          {data.clauses.map(c => (
+          {data.clauses.map((c: any) => (
             <button
               key={c.id}
               onClick={() => setSelectedIndex(c.index)}
@@ -78,6 +82,7 @@ export default function DocumentClient({ documentId }: Props) {
           ))}
         </div>
       </div>
+
       <div className="flex-1 overflow-y-auto">
         <ClauseExplanationPanel
           clauses={data.clauses}

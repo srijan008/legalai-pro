@@ -17,7 +17,8 @@ export const parserRouter = createTRPCRouter({
         where: { id: input.documentId, ownerId: ctx.userId }
       })
       if (!doc) throw new Error("Document not found")
-      const buffer = await getObjectFromS3(doc.storageKey)
+      if (!doc.fileId) throw new Error("Document file not found")
+      const buffer = await getObjectFromS3(doc.fileId)
       const text = await extractDocumentText(buffer, doc.mimeType)
       const clauses = splitIntoClauses(text)
       const prismaClauses = clauses.map(c => ({
