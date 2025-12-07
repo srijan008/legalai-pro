@@ -31,27 +31,18 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt"
   },
 callbacks: {
-  async session({ session, token }) {
-    // Ensure session.user exists before assigning id
-    type UserWithID = DefaultSession["user"] & { id?: string }
-    if (!session.user) {
-      session.user = {
-        id: token.id as string,
-        name: token.name as string | undefined,
-        email: token.email as string | undefined
-      } as UserWithID
-    } else {
-      (session.user as UserWithID).id = token.id as string
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id   // Attach mongo ObjectId
+      }
+      return token
+    },
+
+    async session({ session, token }) {
+      session.user.id = token.id as string  // Expose id in session
+      return session
     }
-    return session
   },
-  async jwt({ token, user }) {
-    if (user) {
-      token.id = (user as unknown as { id?: string }).id ?? token.id
-    }
-    return token
-  }
-},
   pages: {
     signIn: "/auth/signin"
   }

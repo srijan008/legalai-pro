@@ -1,7 +1,7 @@
 import { initTRPC, TRPCError } from "@trpc/server"
 import { ZodError } from "zod"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../auth"
+import { authOptions } from "@/server/auth"
 
 export type Context = {
   userId: string | null
