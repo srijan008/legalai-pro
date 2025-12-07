@@ -1,5 +1,5 @@
-import Shell from "@/components/layout/Shell"
-import DocumentUploadForm from "@/components/documents/DocumentUploadForm"
+import Shell from "@/app/components/layout/Shell"
+import DocumentUploadForm from "@/app/components/documents/DocumentUploadForm"
 
 export default function UploadPage() {
   return (

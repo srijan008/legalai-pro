@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { trpc } from "@/utils/trpc"
-import RiskDashboard from "@/components/documents/RiskDashboard"
-import ClauseExplanationPanel from "@/components/documents/ClauseExplanationPanel"
+import RiskDashboard from "@/app/components/documents/RiskDashboard"
+import ClauseExplanationPanel from "@/app/components/documents/ClauseExplanationPanel"
 
 type Props = {
   documentId: string

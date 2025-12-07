@@ -1,4 +1,4 @@
-import Shell from "@/components/layout/Shell"
+import Shell from "@/app/components/layout/Shell"
 import DashboardClient from "./DashboardClient"
 
 export default function DashboardPage() {

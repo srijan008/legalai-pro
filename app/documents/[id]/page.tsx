@@ -1,7 +1,7 @@
 import { Suspense } from "react"
-import Shell from "@/components/layout/Shell"
+import Shell from "@/app/components/layout/Shell"
 import DocumentClient from "./DocumentClient"
-import ComplianceForm from "@/components/compliance/ComplianceForm"
+import ComplianceForm from "@/app/components/compliance/ComplianceForm"
 
 type Props = {
   params: { id: string }

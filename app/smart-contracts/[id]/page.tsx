@@ -1,4 +1,4 @@
-import Shell from "@/components/layout/Shell"
+import Shell from "@/app/components/layout/Shell"
 import { prisma } from "@/server/db"
 import { notFound } from "next/navigation"
 

@@ -1,5 +1,5 @@
-import Shell from "@/components/layout/Shell"
-import ContractGeneratorForm from "@/components/contracts/ContractGeneratorForm"
+import Shell from "@/app/components/layout/Shell"
+import ContractGeneratorForm from "@/app/components/contracts/ContractGeneratorForm"
 
 export default function NewContractPage() {
   return (

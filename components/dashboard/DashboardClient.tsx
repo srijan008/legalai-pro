@@ -1,7 +1,7 @@
 "use client"
 
 import { trpc } from "@/utils/trpc"
-import DashboardSection from "@/components/dashboard/DashboardSection"
+import DashboardSection from "@/app/components/dashboard/DashboardSection"
 
 export default function DashboardClient() {
   const docs = trpc.documents.list.useQuery()
